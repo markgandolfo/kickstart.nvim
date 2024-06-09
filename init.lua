@@ -5,14 +5,14 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 --
-vim.g.loader_netrwPlugin = false
+vim.g.loaded_netrwPlugin = false
 
 -- Make line numbers default
 vim.opt.number = true
@@ -156,6 +156,14 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  { -- nvim tree
+    'nvim-tree/nvim-tree.lua',
+    opts = {},
+    dependencies = {
+      'kyazdani42/nvim-web-devicons',
+    },
+  },
+
   { 'github/copilot.vim' },
 
   -- Here is a more advanced example where we pass configuration
@@ -271,11 +279,17 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            n = {
+              ['<Leader>v'] = 'select_vertical',
+              ['<Leader>x'] = 'select_horizontal',
+            },
+          },
+
+          file_ignore_patterns = { 'node_modules', '.git', 'build' },
+        },
+
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -328,6 +342,10 @@ require('lazy').setup({
 
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    init = function()
+      require('lspconfig').gleam.setup {}
+    end,
+
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
