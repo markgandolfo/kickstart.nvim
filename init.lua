@@ -280,14 +280,6 @@ require('lazy').setup({
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
-        defaults = {
-          file_ignore_patterns = {
-            'node_modules',
-            '.git',
-            'target',
-          },
-          -- Other defaults configuration
-        },
 
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -300,7 +292,7 @@ require('lazy').setup({
             },
           },
 
-          file_ignore_patterns = { 'node_modules', '.git', 'build' },
+          file_ignore_patterns = { 'node_modules', '.git', 'build', 'target' },
         },
 
         -- pickers = {}
