@@ -109,6 +109,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Toggle NvimTree
 vim.keymap.set('n', '<Leader>fb', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim tree' })
+vim.keymap.set('n', '<Leader>j', ':bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<Leader>k', ':bnext<CR>', { desc = 'Prev Buffer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
