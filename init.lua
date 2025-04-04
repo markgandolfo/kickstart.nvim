@@ -12,6 +12,8 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 --
+
+-- disable netrw at the very start
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 
@@ -108,7 +110,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Toggle NvimTree
-vim.keymap.set('n', '<Leader>fb', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim tree' })
+-- vim.keymap.set('n', '<Leader>fb', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim tree' })
 vim.keymap.set('n', '<Leader>j', ':bnext<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<Leader>k', ':bnext<CR>', { desc = 'Prev Buffer' })
 
@@ -500,7 +502,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        -- tsserver = {},
         --
 
         lua_ls = {
@@ -815,6 +817,7 @@ require('lazy').setup({
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.copilot',
+  require 'custom.plugins.buffer_manager',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
