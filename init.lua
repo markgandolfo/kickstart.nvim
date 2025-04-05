@@ -270,6 +270,8 @@ require('lazy').setup({
             n = {
               ['<Leader>v'] = 'select_vertical',
               ['<Leader>x'] = 'select_horizontal',
+              ['<Leader>d'] = require('telescope.actions').delete_buffer,
+              ['<Leader>q'] = require('telescope.actions').close,
             },
           },
 
@@ -817,7 +819,7 @@ require('lazy').setup({
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.copilot',
-  require 'custom.plugins.buffer_manager',
+  -- require 'custom.plugins.buffer_manager',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
