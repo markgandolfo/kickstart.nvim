@@ -109,8 +109,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Toggle NvimTree
--- vim.keymap.set('n', '<Leader>fb', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim tree' })
 vim.keymap.set('n', '<Leader>j', ':bnext<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<Leader>k', ':bnext<CR>', { desc = 'Prev Buffer' })
 
@@ -587,6 +585,7 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         javascript = { 'prettierd', 'prettier' },
+        html = { 'htmlbeautifier', 'prettier' },
       },
     },
   },
