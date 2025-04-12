@@ -25,6 +25,7 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
+
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
@@ -111,6 +112,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<Leader>j', ':bnext<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<Leader>k', ':bnext<CR>', { desc = 'Prev Buffer' })
+vim.keymap.set('n', '<Leader>bda', ':bufdo bd<CR>', { desc = 'Close all Buffers' })
+vim.keymap.set('n', '<Leader>bde', ':%bd|e#<CR>', { desc = 'Close all Buffers execpt this one' })
+vim.keymap.set('n', '<Leader>bdd', ':bd<CR>', { desc = 'Close current buffer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -552,44 +556,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- Autoformat
-    'stevearc/conform.nvim',
-    lazy = false,
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_fallback = true }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
-    opts = {
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-        }
-      end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
-        javascript = { 'prettierd', 'prettier' },
-        html = { 'htmlbeautifier', 'prettier' },
-      },
-    },
-  },
-
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -818,6 +784,7 @@ require('lazy').setup({
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.copilot',
+  require 'custom.plugins.conform',
   -- require 'custom.plugins.buffer_manager',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
