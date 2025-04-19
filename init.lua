@@ -13,6 +13,8 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 --
 
+vim.opt.wrap = false
+
 -- disable netrw at the very start
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
@@ -193,8 +195,8 @@ require('lazy').setup({
           { '<leader>c_', hidden = true },
           { '<leader>d', group = '[D]ocument' },
           { '<leader>d_', hidden = true },
-          { '<leader>h', group = 'Git [H]unk' },
-          { '<leader>h_', hidden = true },
+          -- { '<leader>h', group = 'Git [H]unk' },
+          -- { '<leader>h_', hidden = true },
           { '<leader>r', group = '[R]ename' },
           { '<leader>r_', hidden = true },
           { '<leader>s', group = '[S]earch' },
@@ -202,8 +204,8 @@ require('lazy').setup({
           { '<leader>t', group = '[T]oggle' },
           { '<leader>t_', hidden = true },
           { '<leader>w', group = '[W]orkspace' },
-          { '<leader>w_', hidden = true },
-          { '<leader>h', group = 'Git [H]unk', mode = 'v' },
+          -- { '<leader>w_', hidden = true },
+          -- { '<leader>h', group = 'Git [H]unk', mode = 'v' },
         },
       }
     end,
@@ -519,7 +521,7 @@ require('lazy').setup({
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
@@ -667,23 +669,23 @@ require('lazy').setup({
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
-    end,
-  },
+  -- { -- You can easily change to a different colorscheme.
+  --   -- Change the name of the colorscheme plugin below, and then
+  --   -- change the command in the config to whatever the name of that colorscheme is.
+  --   --
+  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   init = function()
+  --     -- Load the colorscheme here.
+  --     -- Like many other themes, this one has different styles, and you could load
+  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  --     vim.cmd.colorscheme 'tokyonight-night'
+  --
+  --     -- You can configure highlights by doing something like:
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -782,9 +784,10 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'custom.plugins.nvim-tree',
-  require 'custom.plugins.copilot',
-  require 'custom.plugins.conform',
+  -- require 'custom.plugins.nvim-tree',
+  -- require 'custom.plugins.copilot',
+  -- require 'custom.plugins.conform',
+  -- require 'custom.plugins.harpoon',
   -- require 'custom.plugins.buffer_manager',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -792,7 +795,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
