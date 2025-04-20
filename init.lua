@@ -118,6 +118,10 @@ vim.keymap.set('n', '<Leader>bda', ':bufdo bd<CR>', { desc = 'Close all Buffers'
 vim.keymap.set('n', '<Leader>bde', ':%bd|e#<CR>', { desc = 'Close all Buffers execpt this one' })
 vim.keymap.set('n', '<Leader>bdd', ':bd<CR>', { desc = 'Close current buffer' })
 
+-- Copy the current file path to the clipboard
+vim.keymap.set('n', '<Leader>cp', ':let @+ = expand("%")<CR>', { silent = true, desc = 'Copy relative file name to clipboard' })
+vim.keymap.set('n', '<Leader>cfp', ':let @+ = expand("%:p")<CR>', { silent = true, desc = 'Copy full path + file name to clipboard' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
