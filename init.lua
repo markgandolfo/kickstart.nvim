@@ -122,6 +122,8 @@ vim.keymap.set('n', '<Leader>bdd', ':bd<CR>', { desc = 'Close current buffer' })
 vim.keymap.set('n', '<Leader>cp', ':let @+ = expand("%")<CR>', { silent = true, desc = 'Copy relative file name to clipboard' })
 vim.keymap.set('n', '<Leader>cfp', ':let @+ = expand("%:p")<CR>', { silent = true, desc = 'Copy full path + file name to clipboard' })
 
+vim.keymap.set('n', '<leader>tw', 'mm:%s/\\s\\+$//e<CR>`m', { desc = 'Remove trailing whitespace and restore cursor position' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
