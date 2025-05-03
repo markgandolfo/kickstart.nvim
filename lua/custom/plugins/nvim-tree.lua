@@ -17,6 +17,11 @@ return {
         ':NvimTreeToggle<CR>',
         desc = 'Toggle nvim tree',
       },
+      {
+        '<Leader>fB',
+        ':NvimTreeFindFile<CR>',
+        desc = 'Find file in nvim tree',
+      },
     },
   },
 }
