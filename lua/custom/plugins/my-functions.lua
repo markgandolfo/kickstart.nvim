@@ -26,4 +26,5 @@ return {
   vim.keymap.set('n', '<Leader>bda', ':bufdo bd<CR>', { desc = 'Close all Buffers' }),
   vim.keymap.set('n', '<Leader>bde', ':%bd|e#<CR>', { desc = 'Close all Buffers execpt this one' }),
   vim.keymap.set('n', '<Leader>bdd', ':bd<CR>', { desc = 'Close current buffer' }),
+  vim.keymap.set('n', '<Leader>bd!', ':bd!<CR>', { desc = 'Close current buffer without saving' }),
 }
