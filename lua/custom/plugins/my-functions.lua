@@ -22,9 +22,9 @@ return {
   vim.keymap.set('n', '<leader>tw', 'mm:%s/\\s\\+$//e<CR>`m', { desc = 'Remove trailing whitespace and restore cursor position' }),
 
   vim.keymap.set('n', '<Leader>j', ':bnext<CR>', { desc = 'Next Buffer' }),
-  vim.keymap.set('n', '<Leader>k', ':bnext<CR>', { desc = 'Prev Buffer' }),
-  vim.keymap.set('n', '<Leader>bda', ':bufdo bd<CR>', { desc = 'Close all Buffers' }),
-  vim.keymap.set('n', '<Leader>bde', ':%bd|e#<CR>', { desc = 'Close all Buffers execpt this one' }),
-  vim.keymap.set('n', '<Leader>bdd', ':bd<CR>', { desc = 'Close current buffer' }),
-  vim.keymap.set('n', '<Leader>bd!', ':bd!<CR>', { desc = 'Close current buffer without saving' }),
+  vim.keymap.set('n', '<Leader>k', ':bprev<CR>', { desc = 'Prev Buffer' }),
+  vim.keymap.set('n', '<Leader>bca', ':bufdo bd<CR>', { desc = 'Close all Buffers' }),
+  vim.keymap.set('n', '<Leader>bce', ':%bd|e#<CR>', { desc = 'Close all Buffers execpt this one' }),
+  vim.keymap.set('n', '<Leader>bcc', ':bd<CR>', { desc = 'Close current buffer' }),
+  vim.keymap.set('n', '<Leader>bc!', ':bd!<CR>', { desc = 'Close current buffer without saving' }),
 }
