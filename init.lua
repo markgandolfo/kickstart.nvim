@@ -224,9 +224,9 @@ require('lazy').setup({
         defaults = {
           mappings = {
             n = {
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
               ['<Leader>v'] = 'select_vertical',
               ['<Leader>x'] = 'select_horizontal',
-              ['<Leader>d'] = require('telescope.actions').delete_buffer,
               ['<Leader>q'] = require('telescope.actions').close,
             },
           },
