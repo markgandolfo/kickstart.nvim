@@ -21,6 +21,9 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
+-- Enable termguicolors
+vim.opt.termguicolors = true
+
 -- Sync clipboard between OS and Neovim.
 
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -218,6 +221,11 @@ require('lazy').setup({
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
 
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
