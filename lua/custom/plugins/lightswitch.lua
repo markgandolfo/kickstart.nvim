@@ -1,6 +1,6 @@
 return {
-  dir = '/home/mark/src/lua/lightswitch.nvim',
-  -- 'markgandolfo/lightswitch.nvim',
+  -- dir = '/home/mark/src/lua/lightswitch.nvim',
+  'markgandolfo/lightswitch.nvim',
   dependencies = { 'MunifTanjim/nui.nvim' },
   config = function()
     require('lightswitch').setup {
